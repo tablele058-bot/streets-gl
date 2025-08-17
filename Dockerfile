@@ -1,5 +1,11 @@
 FROM node:19 as builder
 
+# Expose Coolify vars to webpack
+ARG SOURCE_COMMIT
+ARG COOLIFY_BRANCH
+ENV SOURCE_COMMIT=${SOURCE_COMMIT}
+ENV COOLIFY_BRANCH=${COOLIFY_BRANCH}
+
 RUN apt-get install -y --no-install-recommends git
 
 WORKDIR /usr/src/builder
