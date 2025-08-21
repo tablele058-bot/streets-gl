@@ -15,7 +15,7 @@ const VERSION = require('./package.json').version;
 module.exports = (env, argv) => ([{
 	entry: './src/app/App.ts',
 	output: {
-		filename: './js/index.js',
+		filename: './js/index.[contenthash].js',
 		path: path.resolve(__dirname, 'build')
 	},
 	performance: {
