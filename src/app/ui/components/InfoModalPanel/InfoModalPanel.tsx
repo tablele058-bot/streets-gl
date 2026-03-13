@@ -1,15 +1,14 @@
 import React from "react";
 import styles from './InfoModalPanel.scss';
 import ModalPanel from "~/app/ui/components/ModalPanel";
-import {IoLogoDiscord, IoLogoGithub} from "react-icons/io5";
+import {IoLogoGithub} from "react-icons/io5";
 import ModalCategoryContainer from "~/app/ui/components/ModalPanel/ModalCategoryContainer";
 import ModalCategory from "~/app/ui/components/ModalPanel/ModalCategory";
 import ModalPar from "~/app/ui/components/ModalPanel/ModalPar";
 import ModalParAnchor from "~/app/ui/components/ModalPanel/ModalParAnchor";
 import ModalButton from "~/app/ui/components/ModalButton";
 
-const RepositoryURL = 'https://github.com/StrandedKitty/streets-gl';
-const DiscordURL = 'https://discord.gg/bewggJ3eMC';
+const RepositoryURL = 'https://github.com/tablele058-bot/streets-gl';
 
 const Key: React.FC<{text: string}> = ({text}) => {
 	return <kbd className={styles.keyboardKey}>{text}</kbd>;
@@ -17,8 +16,7 @@ const Key: React.FC<{text: string}> = ({text}) => {
 
 const KeysConfig: {keys: JSX.Element; desc: string}[] = [
 	{
-		keys: <><Key text='W'/> <Key text='A'/> <Key text='S'/> <Key text='D'/> (+ <Key text='Shift'/> ) or left mouse
-			button</>,
+		keys: <><Key text='W'/> <Key text='A'/> <Key text='S'/> <Key text='D'/> (+ <Key text='Shift'/> ) or left mouse button</>,
 		desc: 'Camera movement'
 	}, {
 		keys: <><Key text='Q'/> <Key text='E'/> <Key text='R'/> <Key text='F'/> or right mouse button</>,
@@ -52,10 +50,10 @@ const InfoModalPanel: React.FC<{
 		<ModalCategoryContainer>
 			<ModalCategory>
 				<ModalPar isSmall={true}>
-					Streets GL v{VERSION}
+					Sunny Bhai 3D City v{VERSION}
 					{' '}
 					<ModalParAnchor
-						href={`https://github.com/StrandedKitty/streets-gl/commit/${COMMIT_SHA}`}
+						href={`https://github.com/tablele058-bot/streets-gl/commit/${COMMIT_SHA}`}
 					>
 						{COMMIT_SHA.slice(0, 7)}
 					</ModalParAnchor>
@@ -64,7 +62,7 @@ const InfoModalPanel: React.FC<{
 				</ModalPar>
 				<ModalPar>
 					<div className={styles.links}>
-						<a
+						
 							className={styles.anchor}
 							href={RepositoryURL}
 							target={'_blank'}
@@ -72,16 +70,6 @@ const InfoModalPanel: React.FC<{
 							<ModalButton
 								text={'GitHub repository'}
 								icon={<IoLogoGithub size={16}/>}
-							/>
-						</a>
-						<a
-							className={styles.anchor}
-							href={DiscordURL}
-							target={'_blank'}
-						>
-							<ModalButton
-								text={'Discord server'}
-								icon={<IoLogoDiscord size={16}/>}
 							/>
 						</a>
 					</div>
