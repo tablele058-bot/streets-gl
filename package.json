@@ -67,6 +67,7 @@
 		"dagre": "^0.8.5",
 		"dagre-d3": "^0.6.4",
 		"earcut": "^2.2.2",
+		"leaflet-realtime": "^2.2.0",
 		"lerc": "^4.0.4",
 		"path-browserify": "^1.0.1",
 		"pbf": "^3.2.1",
