@@ -16,45 +16,39 @@ const Key: React.FC<{text: string}> = ({text}) => {
 
 const KeysConfig: {keys: JSX.Element; desc: string}[] = [
 	{
-		keys: <><Key text='W'/> <Key text='A'/> <Key text='S'/> <Key text='D'/> (+ <Key text='Shift'/> ) or left mouse button</>,
+		keys: <><Key text='W'/><Key text='A'/><Key text='S'/><Key text='D'/></>,
 		desc: 'Camera movement'
 	}, {
-		keys: <><Key text='Q'/> <Key text='E'/> <Key text='R'/> <Key text='F'/> or right mouse button</>,
+		keys: <><Key text='Q'/><Key text='E'/><Key text='R'/><Key text='F'/></>,
 		desc: 'Camera pitch and yaw'
 	}, {
 		keys: <>Middle mouse button</>,
 		desc: '2x camera zoom'
 	}, {
 		keys: <Key text='Tab'/>,
-		desc: 'Toggle between ground camera mode (default) and free camera mode'
+		desc: 'Toggle between ground and free camera mode'
 	}, {
-		keys: <><Key text='Ctrl'/> + <Key text='P'/></>,
+		keys: <><Key text='Ctrl'/><Key text='P'/></>,
 		desc: 'Purge all loaded tiles'
 	}, {
-		keys: <><Key text='Ctrl'/> + <Key text='U'/></>,
+		keys: <><Key text='Ctrl'/><Key text='U'/></>,
 		desc: 'Toggle UI visibility'
 	}, {
-		keys: <><Key text='Ctrl'/> + <Key text='B'/></>,
+		keys: <><Key text='Ctrl'/><Key text='B'/></>,
 		desc: 'Pause air traffic'
 	}
 ];
 
 const InfoModalPanel: React.FC<{
 	onClose: () => void;
-}> = (
-	{
-		onClose
-	}
-) => {
+}> = ({onClose}) => {
 	return <ModalPanel title={'Information'} onClose={onClose}>
 		<ModalCategoryContainer>
 			<ModalCategory>
 				<ModalPar isSmall={true}>
 					Sunny Bhai 3D City v{VERSION}
 					{' '}
-					<ModalParAnchor
-						href={`https://github.com/tablele058-bot/streets-gl/commit/${COMMIT_SHA}`}
-					>
+					<ModalParAnchor href={`https://github.com/tablele058-bot/streets-gl/commit/${COMMIT_SHA}`}>
 						{COMMIT_SHA.slice(0, 7)}
 					</ModalParAnchor>
 					{' '}
@@ -62,15 +56,8 @@ const InfoModalPanel: React.FC<{
 				</ModalPar>
 				<ModalPar>
 					<div className={styles.links}>
-						
-							className={styles.anchor}
-							href={RepositoryURL}
-							target={'_blank'}
-						>
-							<ModalButton
-								text={'GitHub repository'}
-								icon={<IoLogoGithub size={16}/>}
-							/>
+						<a className={styles.anchor} href={RepositoryURL} target={'_blank'}>
+							<ModalButton text={'GitHub repository'} icon={<IoLogoGithub size={16}/>}/>
 						</a>
 					</div>
 				</ModalPar>
@@ -79,14 +66,12 @@ const InfoModalPanel: React.FC<{
 		<ModalCategoryContainer>
 			<ModalCategory label={'Keyboard and mouse controls'}>
 				<div className={styles.controls}>
-					{
-						KeysConfig.map(({keys, desc}, i) => (
-							<div className={styles.controlsRow} key={i}>
-								<div className={styles.controlsRow__desc}>{desc}</div>
-								<div className={styles.controlsRow__keys}>{keys}</div>
-							</div>
-						))
-					}
+					{KeysConfig.map(({keys, desc}, i) => (
+						<div className={styles.controlsRow} key={i}>
+							<div className={styles.controlsRow__desc}>{desc}</div>
+							<div className={styles.controlsRow__keys}>{keys}</div>
+						</div>
+					))}
 				</div>
 			</ModalCategory>
 		</ModalCategoryContainer>
